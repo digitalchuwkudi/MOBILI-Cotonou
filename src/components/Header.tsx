@@ -55,8 +55,8 @@ export const Header = () => {
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-white shadow-md border-b border-[#EDE7DC]/40 py-1.5' 
-          : 'bg-[#FAF9F6]/90 backdrop-blur-md border-b border-[#EDE7DC]/10 py-2.5'
+          ? 'bg-white shadow-md border-b border-[#EDE7DC]/40 py-1 sm:py-1.5' 
+          : 'bg-[#FAF9F6]/90 backdrop-blur-md border-b border-[#EDE7DC]/10 py-1.5 sm:py-2.5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -203,7 +203,7 @@ export const Header = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackEvent('WhatsApp click', { source: 'Header Mobile' })}
-                className="flex items-center justify-center gap-2 px-4 py-3 bg-[#143D2A]/10 hover:bg-[#143D2A]/20 text-[#143D2A] rounded-xl text-sm font-semibold transition-all uppercase"
+                className="flex items-center justify-center gap-2 px-4 py-3 bg-[#C6922E] hover:bg-white text-white hover:text-[#102A43] border border-[#C6922E] rounded-xl text-sm font-semibold transition-all uppercase shadow-sm hover:shadow"
               >
                 <Phone className="w-4 h-4" />
                 <span>WHATSAPP CHAT</span>

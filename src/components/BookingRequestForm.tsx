@@ -380,7 +380,7 @@ export const BookingRequestForm = ({ apartment }: BookingRequestFormProps) => {
           <button
             type="button"
             onClick={handleWhatsAppInstant}
-            className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-[#FAF9F6] hover:bg-[#C6922E] hover:text-[#102A43] hover:border-[#C6922E] text-[#143D2A] border border-[#143D2A]/20 rounded-xl font-bold text-xs tracking-wide transition-all uppercase"
+            className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-[#C6922E] hover:bg-white text-white hover:text-[#102A43] border border-[#C6922E] rounded-xl font-bold text-xs tracking-wide transition-all uppercase shadow-md hover:shadow-lg"
           >
             <Phone className="w-3.5 h-3.5" />
             <span>{t('chatOnWhatsApp')}</span>

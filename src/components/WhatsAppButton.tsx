@@ -32,7 +32,7 @@ export const WhatsAppButton = ({
         target="_blank"
         rel="noopener noreferrer"
         onClick={handleClick}
-        className="fixed bottom-6 right-6 z-50 flex items-center justify-center p-4 bg-[#143D2A] hover:bg-[#102A43] text-white rounded-full shadow-xl border border-white/10 transition-all duration-300 transform hover:scale-105 active:scale-95 group focus-visible:ring-4 focus-visible:ring-[#C6922E]"
+        className="fixed bottom-6 right-6 z-50 flex items-center justify-center p-4 bg-[#C6922E] hover:bg-white text-white hover:text-[#102A43] border border-transparent hover:border-[#C6922E] rounded-full shadow-xl transition-all duration-300 transform hover:scale-105 active:scale-95 group focus-visible:ring-4 focus-visible:ring-[#C6922E]"
         aria-label={t('whatsappCTA')}
       >
         <div className="absolute right-14 bg-[#102A43] text-[#FAF9F6] text-xs font-semibold px-3 py-1.5 rounded-lg shadow-md border border-[#EDE7DC]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap uppercase">
@@ -50,7 +50,7 @@ export const WhatsAppButton = ({
         target="_blank"
         rel="noopener noreferrer"
         onClick={handleClick}
-        className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-[#143D2A] hover:bg-[#C6922E] hover:text-[#102A43] hover:border-[#C6922E] text-[#143D2A] rounded-xl font-medium tracking-wide transition-all duration-300 uppercase text-xs"
+        className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-[#C6922E] bg-[#C6922E] text-white hover:bg-white hover:text-[#102A43] hover:border-[#C6922E] rounded-xl font-medium tracking-wide transition-all duration-300 uppercase text-xs"
       >
         <Phone className="w-4 h-4" />
         <span>{label || t('chatOnWhatsApp')}</span>
@@ -64,7 +64,7 @@ export const WhatsAppButton = ({
       target="_blank"
       rel="noopener noreferrer"
       onClick={handleClick}
-      className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#143D2A] hover:bg-[#C6922E] hover:text-[#102A43] text-white rounded-xl font-medium tracking-wide transition-all duration-300 shadow-md hover:shadow-lg focus-visible:ring-4 focus-visible:ring-[#C6922E] uppercase text-xs"
+      className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#C6922E] hover:bg-white text-white hover:text-[#102A43] border border-transparent hover:border-[#C6922E] rounded-xl font-medium tracking-wide transition-all duration-300 shadow-md hover:shadow-lg focus-visible:ring-4 focus-visible:ring-[#C6922E] uppercase text-xs"
     >
       <Phone className="w-4 h-4" />
       <span>{label || t('chatOnWhatsApp')}</span>
