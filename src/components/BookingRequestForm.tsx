@@ -98,7 +98,7 @@ export const BookingRequestForm = ({ apartment }: BookingRequestFormProps) => {
       };
 
       // We send the fetch request to FormSubmit
-      fetch('https://formsubmit.co/ajax/madudimcjx@gmail.com', {
+      fetch('https://formsubmit.co/ajax/digitalchukwudi@gmail.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -160,7 +160,7 @@ export const BookingRequestForm = ({ apartment }: BookingRequestFormProps) => {
 
         {/* FormSubmit Info Notice */}
         <div className="text-[10px] text-gray-500 bg-gray-50 p-2.5 rounded-xl border border-gray-100 text-left">
-          💡 <strong>Tip for Host:</strong> If this is your first time receiving a submission on <strong>madudimcjx@gmail.com</strong>, please check your inbox (including spam) for an email from <strong>FormSubmit</strong> containing an activation button to activate notifications.
+          💡 <strong>Tip for Host:</strong> If this is your first time receiving a submission on <strong>digitalchukwudi@gmail.com</strong>, please check your inbox (including spam) for an email from <strong>FormSubmit</strong> containing an activation button to activate notifications.
         </div>
 
         {/* Call to action on WhatsApp for quicker responses */}
