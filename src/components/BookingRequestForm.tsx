@@ -158,11 +158,6 @@ export const BookingRequestForm = ({ apartment }: BookingRequestFormProps) => {
           {t('bookingFormSuccess', { name: aptTitle })}
         </p>
 
-        {/* FormSubmit Info Notice */}
-        <div className="text-[10px] text-gray-500 bg-gray-50 p-2.5 rounded-xl border border-gray-100 text-left">
-          💡 <strong>Tip for Host:</strong> If this is your first time receiving a submission on <strong>digitalchukwudi@gmail.com</strong>, please check your inbox (including spam) for an email from <strong>FormSubmit</strong> containing an activation button to activate notifications.
-        </div>
-
         {/* Call to action on WhatsApp for quicker responses */}
         <div className="pt-4 border-t border-[#EDE7DC]/40 space-y-3">
           <p className="text-xs text-[#172033]/50">
