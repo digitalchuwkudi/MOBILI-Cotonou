@@ -73,15 +73,42 @@ export const BookingRequestForm = ({ apartment }: BookingRequestFormProps) => {
     ? getApartmentPreFilledMessage(aptTitle, apartment.neighborhood, checkIn || '___', checkOut || '___', guests)
     : getApartmentPreFilledMessageFr(aptTitle, apartment.neighborhood, checkIn || '___', checkOut || '___', guests);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateForm()) return;
 
     setIsSubmitting(true);
     trackEvent('Booking request started', { id: apartment.id, title: aptTitle });
 
-    // Simulate database request submission - Stage 1 frontend-only representation
-    setTimeout(() => {
+    try {
+      const payload = {
+        _subject: `New Booking Request for "${aptTitle}" in Cotonou`,
+        apartmentId: apartment.id,
+        apartmentTitle: aptTitle,
+        neighborhood: apartment.neighborhood,
+        checkInDate: checkIn,
+        checkOutDate: checkOut,
+        nights: nights.toString(),
+        guests: guests.toString(),
+        name,
+        phone,
+        email,
+        message: message || 'None',
+        estimatedTotal: `${formatPrice(finalTotal)}`
+      };
+
+      // We send the fetch request to FormSubmit
+      fetch('https://formsubmit.co/ajax/madudimcjx@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      }).catch(err => console.warn('FormSubmit background submit:', err));
+
+      // Transition instantly to the success screen to avoid blocking the user flow,
+      // especially if they need to authorize/activate the email on FormSubmit first.
       setIsSubmitting(false);
       setIsSuccess(true);
       trackEvent('Booking request submitted', {
@@ -94,7 +121,11 @@ export const BookingRequestForm = ({ apartment }: BookingRequestFormProps) => {
         phone,
         email,
       });
-    }, 1000);
+    } catch (err) {
+      console.error(err);
+      setIsSubmitting(false);
+      setErrors({ submit: language === 'en' ? 'An unexpected error occurred. Please try again.' : 'Une erreur inattendue est survenue.' });
+    }
   };
 
   const handleWhatsAppInstant = () => {
@@ -126,6 +157,11 @@ export const BookingRequestForm = ({ apartment }: BookingRequestFormProps) => {
         <p className="text-sm text-[#172033]/70 leading-relaxed">
           {t('bookingFormSuccess', { name: aptTitle })}
         </p>
+
+        {/* FormSubmit Info Notice */}
+        <div className="text-[10px] text-gray-500 bg-gray-50 p-2.5 rounded-xl border border-gray-100 text-left">
+          💡 <strong>Tip for Host:</strong> If this is your first time receiving a submission on <strong>madudimcjx@gmail.com</strong>, please check your inbox (including spam) for an email from <strong>FormSubmit</strong> containing an activation button to activate notifications.
+        </div>
 
         {/* Call to action on WhatsApp for quicker responses */}
         <div className="pt-4 border-t border-[#EDE7DC]/40 space-y-3">
@@ -213,7 +249,7 @@ export const BookingRequestForm = ({ apartment }: BookingRequestFormProps) => {
             onChange={(e) => setGuests(parseInt(e.target.value, 10))}
             className="w-full bg-[#FAF9F6] border border-[#EDE7DC] rounded-xl px-3 py-2.5 text-xs font-semibold appearance-none focus:outline-none focus:border-[#C6922E]"
           >
-            {Array.from({ length: apartment.maxGuests }, (_, i) => i + 1).map((n) => (
+            {Array.from({ length: Math.max(4, apartment.maxGuests) }, (_, i) => i + 1).map((n) => (
               <option key={n} value={n}>
                 {n} {n === 1 ? (language === 'en' ? 'Guest' : 'Voyageur') : (language === 'en' ? 'Guests' : 'Voyageurs')}
               </option>
@@ -328,6 +364,12 @@ export const BookingRequestForm = ({ apartment }: BookingRequestFormProps) => {
 
         {/* Action Buttons */}
         <div className="pt-2 space-y-2.5">
+          {errors.submit && (
+            <div className="text-xs text-red-600 font-bold bg-red-50 p-3 rounded-xl border border-red-200">
+              {errors.submit}
+            </div>
+          )}
+
           <button
             type="submit"
             disabled={isSubmitting}
