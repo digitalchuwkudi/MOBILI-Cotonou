@@ -173,7 +173,7 @@ export const Footer = () => {
                   className="flex flex-col group"
                 >
                   <span className="text-white/40 text-xs uppercase font-semibold">WhatsApp</span>
-                  <span className="text-white/70 group-hover:text-[#C6922E] font-medium transition-colors">+229 92 20 66 12</span>
+                  <span className="text-white/70 group-hover:text-[#C6922E] font-medium transition-colors">+229 01 92 20 66 12</span>
                 </a>
               </li>
               <li className="flex items-start gap-2.5">

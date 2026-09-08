@@ -2,7 +2,7 @@
 // Stage 2/3 can easily swap the placeholder with the real business number in this single location.
 
 export const WHATSAPP_CONFIG = {
-  whatsappNumber: '+22992206612', 
+  whatsappNumber: '+2290192206612', 
   brandName: 'Mobili Cotonou'
 };
 

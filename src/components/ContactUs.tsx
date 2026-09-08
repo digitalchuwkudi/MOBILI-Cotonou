@@ -126,7 +126,7 @@ export const ContactUs = () => {
                     onClick={() => trackEvent('WhatsApp click', { source: 'Contact us card' })}
                     className="inline-flex items-center gap-1 text-xs font-bold text-[#143D2A] hover:text-[#C6922E] transition-colors"
                   >
-                    <span>+229 92 20 66 12</span>
+                    <span>+229 01 92 20 66 12</span>
                     <span className="text-[#EDE7DC]">&bull;</span>
                     <span className="underline uppercase">{language === 'en' ? 'CHAT ON WHATSAPP' : 'DISCUTER SUR WHATSAPP'}</span>
                   </a>
